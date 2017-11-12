@@ -161,5 +161,5 @@ Class | Method | HTTP request | Description
 
 ## Author
 
-team at parallelstack.com
+team@parallelstack.com
 
