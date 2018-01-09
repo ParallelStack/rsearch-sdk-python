@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from rsearch_client.models.get_indexes_failure_indexes import GetIndexesFailureIndexes  # noqa: F401,E501
 
 
 class GetDocTypesFailure(object):
@@ -31,7 +33,7 @@ class GetDocTypesFailure(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'document_types': 'object'
+        'document_types': 'GetIndexesFailureIndexes'
     }
 
     attribute_map = {
@@ -52,7 +54,7 @@ class GetDocTypesFailure(object):
 
 
         :return: The document_types of this GetDocTypesFailure.  # noqa: E501
-        :rtype: object
+        :rtype: GetIndexesFailureIndexes
         """
         return self._document_types
 
@@ -62,7 +64,7 @@ class GetDocTypesFailure(object):
 
 
         :param document_types: The document_types of this GetDocTypesFailure.  # noqa: E501
-        :type: object
+        :type: GetIndexesFailureIndexes
         """
         if document_types is None:
             raise ValueError("Invalid value for `document_types`, must not be `None`")  # noqa: E501

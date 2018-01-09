@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from rsearch_client.models.suggest_query_suggest import SuggestQuerySuggest  # noqa: F401,E501
 
 
 class SuggestQuery(object):
@@ -31,7 +33,7 @@ class SuggestQuery(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'suggest': 'object'
+        'suggest': 'SuggestQuerySuggest'
     }
 
     attribute_map = {
@@ -52,7 +54,7 @@ class SuggestQuery(object):
 
 
         :return: The suggest of this SuggestQuery.  # noqa: E501
-        :rtype: object
+        :rtype: SuggestQuerySuggest
         """
         return self._suggest
 
@@ -62,7 +64,7 @@ class SuggestQuery(object):
 
 
         :param suggest: The suggest of this SuggestQuery.  # noqa: E501
-        :type: object
+        :type: SuggestQuerySuggest
         """
         if suggest is None:
             raise ValueError("Invalid value for `suggest`, must not be `None`")  # noqa: E501

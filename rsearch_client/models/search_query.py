@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from rsearch_client.models.search_query_search import SearchQuerySearch  # noqa: F401,E501
 
 
 class SearchQuery(object):
@@ -31,7 +33,7 @@ class SearchQuery(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'search': 'object'
+        'search': 'SearchQuerySearch'
     }
 
     attribute_map = {
@@ -52,7 +54,7 @@ class SearchQuery(object):
 
 
         :return: The search of this SearchQuery.  # noqa: E501
-        :rtype: object
+        :rtype: SearchQuerySearch
         """
         return self._search
 
@@ -62,7 +64,7 @@ class SearchQuery(object):
 
 
         :param search: The search of this SearchQuery.  # noqa: E501
-        :type: object
+        :type: SearchQuerySearch
         """
         if search is None:
             raise ValueError("Invalid value for `search`, must not be `None`")  # noqa: E501

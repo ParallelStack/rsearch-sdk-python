@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -15,8 +15,6 @@ import pprint
 import re  # noqa: F401
 
 import six
-
-from rsearch_client.models.errorunknown import ERRORUNKNOWN  # noqa: F401,E501
 
 
 class Document(object):
@@ -33,12 +31,12 @@ class Document(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'document_id': 'str'
-        'fields': 'list[object[ERRORUNKNOWN]]'
+        'document_id': 'str',
+        'fields': 'list[object]'
     }
 
     attribute_map = {
-        'document_id': 'document_id'
+        'document_id': 'document_id',
         'fields': 'fields'
     }
 
@@ -81,7 +79,7 @@ class Document(object):
 
 
         :return: The fields of this Document.  # noqa: E501
-        :rtype: list[object[ERRORUNKNOWN]]
+        :rtype: list[object]
         """
         return self._fields
 
@@ -91,7 +89,7 @@ class Document(object):
 
 
         :param fields: The fields of this Document.  # noqa: E501
-        :type: list[object[ERRORUNKNOWN]]
+        :type: list[object]
         """
         if fields is None:
             raise ValueError("Invalid value for `fields`, must not be `None`")  # noqa: E501

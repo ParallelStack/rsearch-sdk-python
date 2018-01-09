@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from rsearch_client.models.get_document_success_document import GetDocumentSuccessDocument  # noqa: F401,E501
 
 
 class GetDocumentSuccess(object):
@@ -31,7 +33,7 @@ class GetDocumentSuccess(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'document': 'object'
+        'document': 'GetDocumentSuccessDocument'
     }
 
     attribute_map = {
@@ -52,7 +54,7 @@ class GetDocumentSuccess(object):
 
 
         :return: The document of this GetDocumentSuccess.  # noqa: E501
-        :rtype: object
+        :rtype: GetDocumentSuccessDocument
         """
         return self._document
 
@@ -62,7 +64,7 @@ class GetDocumentSuccess(object):
 
 
         :param document: The document of this GetDocumentSuccess.  # noqa: E501
-        :type: object
+        :type: GetDocumentSuccessDocument
         """
         if document is None:
             raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501

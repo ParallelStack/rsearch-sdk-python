@@ -5,7 +5,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -28,27 +28,44 @@ from rsearch_client.models.create_document_failure import CreateDocumentFailure
 from rsearch_client.models.create_document_success import CreateDocumentSuccess
 from rsearch_client.models.create_index_failure import CreateIndexFailure
 from rsearch_client.models.create_index_success import CreateIndexSuccess
+from rsearch_client.models.create_index_success_indexes import CreateIndexSuccessIndexes
 from rsearch_client.models.delete_document_failure import DeleteDocumentFailure
 from rsearch_client.models.delete_document_success import DeleteDocumentSuccess
 from rsearch_client.models.delete_index_failure import DeleteIndexFailure
 from rsearch_client.models.delete_index_success import DeleteIndexSuccess
+from rsearch_client.models.delete_index_success_index import DeleteIndexSuccessIndex
 from rsearch_client.models.document import Document
 from rsearch_client.models.document_type import DocumentType
+from rsearch_client.models.document_type_fields import DocumentTypeFields
 from rsearch_client.models.get_doc_type_failure import GetDocTypeFailure
 from rsearch_client.models.get_doc_type_success import GetDocTypeSuccess
+from rsearch_client.models.get_doc_type_success_document_type import GetDocTypeSuccessDocumentType
 from rsearch_client.models.get_doc_types_failure import GetDocTypesFailure
 from rsearch_client.models.get_doc_types_success import GetDocTypesSuccess
+from rsearch_client.models.get_doc_types_success_document_types import GetDocTypesSuccessDocumentTypes
 from rsearch_client.models.get_document_failure import GetDocumentFailure
 from rsearch_client.models.get_document_success import GetDocumentSuccess
+from rsearch_client.models.get_document_success_document import GetDocumentSuccessDocument
 from rsearch_client.models.get_documents_failure import GetDocumentsFailure
 from rsearch_client.models.get_documents_success import GetDocumentsSuccess
+from rsearch_client.models.get_documents_success_documents import GetDocumentsSuccessDocuments
 from rsearch_client.models.get_index_failure import GetIndexFailure
 from rsearch_client.models.get_index_success import GetIndexSuccess
+from rsearch_client.models.get_index_success_indexes import GetIndexSuccessIndexes
 from rsearch_client.models.get_indexes_failure import GetIndexesFailure
+from rsearch_client.models.get_indexes_failure_indexes import GetIndexesFailureIndexes
 from rsearch_client.models.get_indexes_success import GetIndexesSuccess
+from rsearch_client.models.get_indexes_success_indexes import GetIndexesSuccessIndexes
+from rsearch_client.models.get_indexes_success_indexes_metadata import GetIndexesSuccessIndexesMetadata
 from rsearch_client.models.search_failure import SearchFailure
+from rsearch_client.models.search_failure_suggest_results import SearchFailureSuggestResults
 from rsearch_client.models.search_query import SearchQuery
+from rsearch_client.models.search_query_search import SearchQuerySearch
+from rsearch_client.models.search_query_search_aggregations import SearchQuerySearchAggregations
 from rsearch_client.models.search_success import SearchSuccess
+from rsearch_client.models.search_success_suggest_results import SearchSuccessSuggestResults
+from rsearch_client.models.search_success_suggest_results_metadata import SearchSuccessSuggestResultsMetadata
 from rsearch_client.models.suggest_failure import SuggestFailure
 from rsearch_client.models.suggest_query import SuggestQuery
+from rsearch_client.models.suggest_query_suggest import SuggestQuerySuggest
 from rsearch_client.models.suggest_success import SuggestSuccess

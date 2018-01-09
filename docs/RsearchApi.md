@@ -23,7 +23,7 @@ Method | HTTP request | Description
 
 
 # **add_document**
-> CreateDocumentSuccess add_document(index_namedoc_type_namedoc_id)
+> CreateDocumentSuccess add_document(index_name, doc_type_name, doc_id, document_details)
 
 
 
@@ -37,14 +37,26 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: writeAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the document_type
-doc_id = ['doc_id_example'] # str | Document ID
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the document_type
+doc_id = 'doc_id_example' # str | Document ID
+document_details = rsearch_client.Document() # Document | Details of the document
 
 try:
-    api_response = api_instance.add_document(index_namedoc_type_namedoc_id)
+    api_response = api_instance.add_document(index_name, doc_type_name, doc_id, document_details)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->add_document: %s\n" % e)
@@ -54,9 +66,10 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the document_type | 
- **doc_id** | [**str**](.md)| Document ID | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the document_type | 
+ **doc_id** | **str**| Document ID | 
+ **document_details** | [**Document**](Document.md)| Details of the document | 
 
 ### Return type
 
@@ -68,13 +81,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **add_document_type**
-> CreateDocTypeSuccess add_document_type(index_namedoc_type_name)
+> CreateDocTypeSuccess add_document_type(index_name, doc_type_name, doc_type_details)
 
 
 
@@ -88,13 +101,25 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the document_type
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the document_type
+doc_type_details = rsearch_client.DocumentType() # DocumentType | Details of the document_type
 
 try:
-    api_response = api_instance.add_document_type(index_namedoc_type_name)
+    api_response = api_instance.add_document_type(index_name, doc_type_name, doc_type_details)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->add_document_type: %s\n" % e)
@@ -104,8 +129,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the document_type | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the document_type | 
+ **doc_type_details** | [**DocumentType**](DocumentType.md)| Details of the document_type | 
 
 ### Return type
 
@@ -117,8 +143,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -137,9 +163,20 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: writeAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
 
 try:
     api_response = api_instance.add_index(index_name)
@@ -152,7 +189,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
+ **index_name** | **str**| Name of the index | 
 
 ### Return type
 
@@ -165,12 +202,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_document**
-> DeleteDocumentSuccess delete_document(index_namedoc_type_namedoc_id)
+> DeleteDocumentSuccess delete_document(index_name, doc_type_name, doc_id)
 
 
 
@@ -184,14 +221,25 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: writeAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the document_type
-doc_id = ['doc_id_example'] # str | Document ID
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the document_type
+doc_id = 'doc_id_example' # str | Document ID
 
 try:
-    api_response = api_instance.delete_document(index_namedoc_type_namedoc_id)
+    api_response = api_instance.delete_document(index_name, doc_type_name, doc_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->delete_document: %s\n" % e)
@@ -201,9 +249,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the document_type | 
- **doc_id** | [**str**](.md)| Document ID | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the document_type | 
+ **doc_id** | **str**| Document ID | 
 
 ### Return type
 
@@ -216,7 +264,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -235,9 +283,20 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: writeAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
 
 try:
     api_response = api_instance.delete_index(index_name)
@@ -250,7 +309,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
+ **index_name** | **str**| Name of the index | 
 
 ### Return type
 
@@ -263,12 +322,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_advanced_doc_type_suggest_results**
-> SuggestSuccess get_advanced_doc_type_suggest_results(index_namedoc_type_name)
+> SuggestSuccess get_advanced_doc_type_suggest_results(index_name, doc_type_name, suggest)
 
 
 
@@ -282,13 +341,25 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the Document_type
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the Document_type
+suggest = rsearch_client.SuggestQuery() # SuggestQuery | Details of the search query
 
 try:
-    api_response = api_instance.get_advanced_doc_type_suggest_results(index_namedoc_type_name)
+    api_response = api_instance.get_advanced_doc_type_suggest_results(index_name, doc_type_name, suggest)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->get_advanced_doc_type_suggest_results: %s\n" % e)
@@ -298,8 +369,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the Document_type | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the Document_type | 
+ **suggest** | [**SuggestQuery**](SuggestQuery.md)| Details of the search query | 
 
 ### Return type
 
@@ -311,13 +383,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_advanced_index_suggest_results**
-> SuggestSuccess get_advanced_index_suggest_results(index_name)
+> SuggestSuccess get_advanced_index_suggest_results(index_name, search)
 
 
 
@@ -331,12 +403,24 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+search = rsearch_client.SuggestQuery() # SuggestQuery | Details of the search query
 
 try:
-    api_response = api_instance.get_advanced_index_suggest_results(index_name)
+    api_response = api_instance.get_advanced_index_suggest_results(index_name, search)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->get_advanced_index_suggest_results: %s\n" % e)
@@ -346,7 +430,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
+ **index_name** | **str**| Name of the index | 
+ **search** | [**SuggestQuery**](SuggestQuery.md)| Details of the search query | 
 
 ### Return type
 
@@ -358,13 +443,13 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_advanced_search_results**
-> SearchSuccess get_advanced_search_results(index_namedoc_type_name)
+> SearchSuccess get_advanced_search_results(index_name, doc_type_name, search)
 
 
 
@@ -378,13 +463,25 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: writeAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the Document_type
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the Document_type
+search = rsearch_client.SearchQuery() # SearchQuery | Details of the search query
 
 try:
-    api_response = api_instance.get_advanced_search_results(index_namedoc_type_name)
+    api_response = api_instance.get_advanced_search_results(index_name, doc_type_name, search)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->get_advanced_search_results: %s\n" % e)
@@ -394,8 +491,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the Document_type | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the Document_type | 
+ **search** | [**SearchQuery**](SearchQuery.md)| Details of the search query | 
 
 ### Return type
 
@@ -407,8 +505,8 @@ Name | Type | Description  | Notes
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -427,9 +525,20 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
 
 try:
     api_response = api_instance.get_all_document_types(index_name)
@@ -442,7 +551,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
+ **index_name** | **str**| Name of the index | 
 
 ### Return type
 
@@ -455,12 +564,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_all_documents**
-> GetDocumentsSuccess get_all_documents(index_namedoc_type_name)
+> GetDocumentsSuccess get_all_documents(index_name, doc_type_name)
 
 
 
@@ -474,13 +583,24 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the document_type
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the document_type
 
 try:
-    api_response = api_instance.get_all_documents(index_namedoc_type_name)
+    api_response = api_instance.get_all_documents(index_name, doc_type_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->get_all_documents: %s\n" % e)
@@ -490,8 +610,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the document_type | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the document_type | 
 
 ### Return type
 
@@ -504,7 +624,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -523,8 +643,19 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
 
 try:
     api_response = api_instance.get_all_indexes()
@@ -547,12 +678,12 @@ This endpoint does not need any parameter.
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_basic_search_results**
-> SearchSuccess get_basic_search_results(index_nameq)
+> SearchSuccess get_basic_search_results(index_name, q)
 
 
 
@@ -566,13 +697,24 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-q = ['q_example'] # str | Search Query
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+q = 'q_example' # str | Search Query
 
 try:
-    api_response = api_instance.get_basic_search_results(index_nameq)
+    api_response = api_instance.get_basic_search_results(index_name, q)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->get_basic_search_results: %s\n" % e)
@@ -582,8 +724,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **q** | [**str**](.md)| Search Query | 
+ **index_name** | **str**| Name of the index | 
+ **q** | **str**| Search Query | 
 
 ### Return type
 
@@ -596,12 +738,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_doc_type_suggest_results**
-> SuggestSuccess get_doc_type_suggest_results(index_namedoc_type_nameq)
+> SuggestSuccess get_doc_type_suggest_results(index_name, doc_type_name, q)
 
 
 
@@ -615,14 +757,25 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the Document_type
-q = ['q_example'] # str | Details of the suggest query
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the Document_type
+q = 'q_example' # str | Details of the suggest query
 
 try:
-    api_response = api_instance.get_doc_type_suggest_results(index_namedoc_type_nameq)
+    api_response = api_instance.get_doc_type_suggest_results(index_name, doc_type_name, q)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->get_doc_type_suggest_results: %s\n" % e)
@@ -632,9 +785,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the Document_type | 
- **q** | [**str**](.md)| Details of the suggest query | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the Document_type | 
+ **q** | **str**| Details of the suggest query | 
 
 ### Return type
 
@@ -647,12 +800,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_document**
-> GetDocumentSuccess get_document(index_namedoc_type_namedoc_id)
+> GetDocumentSuccess get_document(index_name, doc_type_name, doc_id)
 
 
 
@@ -666,14 +819,25 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the document_type
-doc_id = ['doc_id_example'] # str | Document ID
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the document_type
+doc_id = 'doc_id_example' # str | Document ID
 
 try:
-    api_response = api_instance.get_document(index_namedoc_type_namedoc_id)
+    api_response = api_instance.get_document(index_name, doc_type_name, doc_id)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->get_document: %s\n" % e)
@@ -683,9 +847,9 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the document_type | 
- **doc_id** | [**str**](.md)| Document ID | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the document_type | 
+ **doc_id** | **str**| Document ID | 
 
 ### Return type
 
@@ -698,12 +862,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_document_type**
-> GetDocTypeSuccess get_document_type(index_namedoc_type_name)
+> GetDocTypeSuccess get_document_type(index_name, doc_type_name)
 
 
 
@@ -717,13 +881,24 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
-doc_type_name = ['doc_type_name_example'] # str | Name of the document_type
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
+doc_type_name = 'doc_type_name_example' # str | Name of the document_type
 
 try:
-    api_response = api_instance.get_document_type(index_namedoc_type_name)
+    api_response = api_instance.get_document_type(index_name, doc_type_name)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling RsearchApi->get_document_type: %s\n" % e)
@@ -733,8 +908,8 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
- **doc_type_name** | [**str**](.md)| Name of the document_type | 
+ **index_name** | **str**| Name of the index | 
+ **doc_type_name** | **str**| Name of the document_type | 
 
 ### Return type
 
@@ -747,7 +922,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -766,9 +941,20 @@ import rsearch_client
 from rsearch_client.rest import ApiException
 from pprint import pprint
 
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
 # create an instance of the API class
-api_instance = rsearch_client.RsearchApi()
-index_name = ['index_name_example'] # str | Name of the index
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+index_name = 'index_name_example' # str | Name of the index
 
 try:
     api_response = api_instance.get_index(index_name)
@@ -781,7 +967,7 @@ except ApiException as e:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **index_name** | [**str**](.md)| Name of the index | 
+ **index_name** | **str**| Name of the index | 
 
 ### Return type
 
@@ -794,7 +980,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
- - **Accept**: application/jsonapplication/jsonapplication/jsonapplication/jsonapplication/json
+ - **Accept**: application/json
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

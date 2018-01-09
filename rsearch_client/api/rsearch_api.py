@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -33,49 +33,51 @@ class RsearchApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-    def add_document(self, index_name, doc_type_name, doc_id, **kwargs):  # noqa: E501
+    def add_document(self, index_name, doc_type_name, doc_id, document_details, **kwargs):  # noqa: E501
         """add_document  # noqa: E501
 
         Creates `doc_id` in `doc_type_name` for `index_name`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_document(index_name, doc_type_name, doc_id, async=True)
+        >>> thread = api.add_document(index_name, doc_type_name, doc_id, document_details, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
         :param str doc_type_name: Name of the document_type (required)
         :param str doc_id: Document ID (required)
+        :param Document document_details: Details of the document (required)
         :return: CreateDocumentSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.add_document_with_http_info(index_name, doc_type_name, doc_id, **kwargs)  # noqa: E501
+            return self.add_document_with_http_info(index_name, doc_type_name, doc_id, document_details, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_document_with_http_info(index_name, doc_type_name, doc_id, **kwargs)  # noqa: E501
+            (data) = self.add_document_with_http_info(index_name, doc_type_name, doc_id, document_details, **kwargs)  # noqa: E501
             return data
 
-    def add_document_with_http_info(self, index_name, doc_type_name, doc_id, **kwargs):  # noqa: E501
+    def add_document_with_http_info(self, index_name, doc_type_name, doc_id, document_details, **kwargs):  # noqa: E501
         """add_document  # noqa: E501
 
         Creates `doc_id` in `doc_type_name` for `index_name`  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_document_with_http_info(index_name, doc_type_name, doc_id, async=True)
+        >>> thread = api.add_document_with_http_info(index_name, doc_type_name, doc_id, document_details, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
         :param str doc_type_name: Name of the document_type (required)
         :param str doc_id: Document ID (required)
+        :param Document document_details: Details of the document (required)
         :return: CreateDocumentSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name''doc_id']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name', 'doc_id', 'document_details']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -102,6 +104,10 @@ class RsearchApi(object):
         if ('doc_id' not in params or
                 params['doc_id'] is None):
             raise ValueError("Missing the required parameter `doc_id` when calling `add_document`")  # noqa: E501
+        # verify the required parameter 'document_details' is set
+        if ('document_details' not in params or
+                params['document_details'] is None):
+            raise ValueError("Missing the required parameter `document_details` when calling `add_document`")  # noqa: E501
 
         collection_formats = {}
 
@@ -121,8 +127,14 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'document_details' in params:
+            body_params = params['document_details']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''writeAppID']  # noqa: E501
+        auth_settings = ['authToken', 'writeAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}/documents/{doc_id}', 'POST',
@@ -140,47 +152,49 @@ class RsearchApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def add_document_type(self, index_name, doc_type_name, **kwargs):  # noqa: E501
+    def add_document_type(self, index_name, doc_type_name, doc_type_details, **kwargs):  # noqa: E501
         """add_document_type  # noqa: E501
 
         Creates specific `document_type` in `index_name` with specified parameters. You should define the parameters correctly as per the getting started guide, else getting the right structure might be an issue.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_document_type(index_name, doc_type_name, async=True)
+        >>> thread = api.add_document_type(index_name, doc_type_name, doc_type_details, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
         :param str doc_type_name: Name of the document_type (required)
+        :param DocumentType doc_type_details: Details of the document_type (required)
         :return: CreateDocTypeSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.add_document_type_with_http_info(index_name, doc_type_name, **kwargs)  # noqa: E501
+            return self.add_document_type_with_http_info(index_name, doc_type_name, doc_type_details, **kwargs)  # noqa: E501
         else:
-            (data) = self.add_document_type_with_http_info(index_name, doc_type_name, **kwargs)  # noqa: E501
+            (data) = self.add_document_type_with_http_info(index_name, doc_type_name, doc_type_details, **kwargs)  # noqa: E501
             return data
 
-    def add_document_type_with_http_info(self, index_name, doc_type_name, **kwargs):  # noqa: E501
+    def add_document_type_with_http_info(self, index_name, doc_type_name, doc_type_details, **kwargs):  # noqa: E501
         """add_document_type  # noqa: E501
 
         Creates specific `document_type` in `index_name` with specified parameters. You should define the parameters correctly as per the getting started guide, else getting the right structure might be an issue.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.add_document_type_with_http_info(index_name, doc_type_name, async=True)
+        >>> thread = api.add_document_type_with_http_info(index_name, doc_type_name, doc_type_details, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
         :param str doc_type_name: Name of the document_type (required)
+        :param DocumentType doc_type_details: Details of the document_type (required)
         :return: CreateDocTypeSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name', 'doc_type_details']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -203,6 +217,10 @@ class RsearchApi(object):
         if ('doc_type_name' not in params or
                 params['doc_type_name'] is None):
             raise ValueError("Missing the required parameter `doc_type_name` when calling `add_document_type`")  # noqa: E501
+        # verify the required parameter 'doc_type_details' is set
+        if ('doc_type_details' not in params or
+                params['doc_type_details'] is None):
+            raise ValueError("Missing the required parameter `doc_type_details` when calling `add_document_type`")  # noqa: E501
 
         collection_formats = {}
 
@@ -220,8 +238,14 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'doc_type_details' in params:
+            body_params = params['doc_type_details']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}', 'POST',
@@ -311,8 +335,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''writeAppID']  # noqa: E501
+        auth_settings = ['authToken', 'writeAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}', 'POST',
@@ -372,7 +400,7 @@ class RsearchApi(object):
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name''doc_id']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name', 'doc_id']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -418,8 +446,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''writeAppID']  # noqa: E501
+        auth_settings = ['authToken', 'writeAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}/documents/{doc_id}', 'DELETE',
@@ -509,8 +541,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''writeAppID']  # noqa: E501
+        auth_settings = ['authToken', 'writeAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}', 'DELETE',
@@ -528,47 +564,49 @@ class RsearchApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_advanced_doc_type_suggest_results(self, index_name, doc_type_name, **kwargs):  # noqa: E501
+    def get_advanced_doc_type_suggest_results(self, index_name, doc_type_name, suggest, **kwargs):  # noqa: E501
         """get_advanced_doc_type_suggest_results  # noqa: E501
 
         Gets Suggestions from `doc_type_name` in `index_name` limited by the body params. Please ensure you refer the getting started guides, to get the format of the query right.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_advanced_doc_type_suggest_results(index_name, doc_type_name, async=True)
+        >>> thread = api.get_advanced_doc_type_suggest_results(index_name, doc_type_name, suggest, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
         :param str doc_type_name: Name of the Document_type (required)
+        :param SuggestQuery suggest: Details of the search query (required)
         :return: SuggestSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.get_advanced_doc_type_suggest_results_with_http_info(index_name, doc_type_name, **kwargs)  # noqa: E501
+            return self.get_advanced_doc_type_suggest_results_with_http_info(index_name, doc_type_name, suggest, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_advanced_doc_type_suggest_results_with_http_info(index_name, doc_type_name, **kwargs)  # noqa: E501
+            (data) = self.get_advanced_doc_type_suggest_results_with_http_info(index_name, doc_type_name, suggest, **kwargs)  # noqa: E501
             return data
 
-    def get_advanced_doc_type_suggest_results_with_http_info(self, index_name, doc_type_name, **kwargs):  # noqa: E501
+    def get_advanced_doc_type_suggest_results_with_http_info(self, index_name, doc_type_name, suggest, **kwargs):  # noqa: E501
         """get_advanced_doc_type_suggest_results  # noqa: E501
 
         Gets Suggestions from `doc_type_name` in `index_name` limited by the body params. Please ensure you refer the getting started guides, to get the format of the query right.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_advanced_doc_type_suggest_results_with_http_info(index_name, doc_type_name, async=True)
+        >>> thread = api.get_advanced_doc_type_suggest_results_with_http_info(index_name, doc_type_name, suggest, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
         :param str doc_type_name: Name of the Document_type (required)
+        :param SuggestQuery suggest: Details of the search query (required)
         :return: SuggestSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name', 'suggest']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -591,6 +629,10 @@ class RsearchApi(object):
         if ('doc_type_name' not in params or
                 params['doc_type_name'] is None):
             raise ValueError("Missing the required parameter `doc_type_name` when calling `get_advanced_doc_type_suggest_results`")  # noqa: E501
+        # verify the required parameter 'suggest' is set
+        if ('suggest' not in params or
+                params['suggest'] is None):
+            raise ValueError("Missing the required parameter `suggest` when calling `get_advanced_doc_type_suggest_results`")  # noqa: E501
 
         collection_formats = {}
 
@@ -608,8 +650,14 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'suggest' in params:
+            body_params = params['suggest']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}/suggest', 'POST',
@@ -627,45 +675,47 @@ class RsearchApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_advanced_index_suggest_results(self, index_name, **kwargs):  # noqa: E501
+    def get_advanced_index_suggest_results(self, index_name, search, **kwargs):  # noqa: E501
         """get_advanced_index_suggest_results  # noqa: E501
 
         Gets Suggestions in `index_name` limited by the request body fields  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_advanced_index_suggest_results(index_name, async=True)
+        >>> thread = api.get_advanced_index_suggest_results(index_name, search, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
+        :param SuggestQuery search: Details of the search query (required)
         :return: SuggestSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.get_advanced_index_suggest_results_with_http_info(index_name, **kwargs)  # noqa: E501
+            return self.get_advanced_index_suggest_results_with_http_info(index_name, search, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_advanced_index_suggest_results_with_http_info(index_name, **kwargs)  # noqa: E501
+            (data) = self.get_advanced_index_suggest_results_with_http_info(index_name, search, **kwargs)  # noqa: E501
             return data
 
-    def get_advanced_index_suggest_results_with_http_info(self, index_name, **kwargs):  # noqa: E501
+    def get_advanced_index_suggest_results_with_http_info(self, index_name, search, **kwargs):  # noqa: E501
         """get_advanced_index_suggest_results  # noqa: E501
 
         Gets Suggestions in `index_name` limited by the request body fields  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_advanced_index_suggest_results_with_http_info(index_name, async=True)
+        >>> thread = api.get_advanced_index_suggest_results_with_http_info(index_name, search, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
+        :param SuggestQuery search: Details of the search query (required)
         :return: SuggestSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['index_name']  # noqa: E501
+        all_params = ['index_name', 'search']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -684,6 +734,10 @@ class RsearchApi(object):
         if ('index_name' not in params or
                 params['index_name'] is None):
             raise ValueError("Missing the required parameter `index_name` when calling `get_advanced_index_suggest_results`")  # noqa: E501
+        # verify the required parameter 'search' is set
+        if ('search' not in params or
+                params['search'] is None):
+            raise ValueError("Missing the required parameter `search` when calling `get_advanced_index_suggest_results`")  # noqa: E501
 
         collection_formats = {}
 
@@ -699,8 +753,14 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'search' in params:
+            body_params = params['search']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/suggest', 'POST',
@@ -718,47 +778,49 @@ class RsearchApi(object):
             _request_timeout=params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def get_advanced_search_results(self, index_name, doc_type_name, **kwargs):  # noqa: E501
+    def get_advanced_search_results(self, index_name, doc_type_name, search, **kwargs):  # noqa: E501
         """get_advanced_search_results  # noqa: E501
 
         Advanced Search which gets all documents in `index_name` for provided search criteria. Please ensure you refer the getting started guides, to get the format of the query right.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_advanced_search_results(index_name, doc_type_name, async=True)
+        >>> thread = api.get_advanced_search_results(index_name, doc_type_name, search, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
         :param str doc_type_name: Name of the Document_type (required)
+        :param SearchQuery search: Details of the search query (required)
         :return: SearchSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
         if kwargs.get('async'):
-            return self.get_advanced_search_results_with_http_info(index_name, doc_type_name, **kwargs)  # noqa: E501
+            return self.get_advanced_search_results_with_http_info(index_name, doc_type_name, search, **kwargs)  # noqa: E501
         else:
-            (data) = self.get_advanced_search_results_with_http_info(index_name, doc_type_name, **kwargs)  # noqa: E501
+            (data) = self.get_advanced_search_results_with_http_info(index_name, doc_type_name, search, **kwargs)  # noqa: E501
             return data
 
-    def get_advanced_search_results_with_http_info(self, index_name, doc_type_name, **kwargs):  # noqa: E501
+    def get_advanced_search_results_with_http_info(self, index_name, doc_type_name, search, **kwargs):  # noqa: E501
         """get_advanced_search_results  # noqa: E501
 
         Advanced Search which gets all documents in `index_name` for provided search criteria. Please ensure you refer the getting started guides, to get the format of the query right.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async=True
-        >>> thread = api.get_advanced_search_results_with_http_info(index_name, doc_type_name, async=True)
+        >>> thread = api.get_advanced_search_results_with_http_info(index_name, doc_type_name, search, async=True)
         >>> result = thread.get()
 
         :param async bool
         :param str index_name: Name of the index (required)
         :param str doc_type_name: Name of the Document_type (required)
+        :param SearchQuery search: Details of the search query (required)
         :return: SearchSuccess
                  If the method is called asynchronously,
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name', 'search']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -781,6 +843,10 @@ class RsearchApi(object):
         if ('doc_type_name' not in params or
                 params['doc_type_name'] is None):
             raise ValueError("Missing the required parameter `doc_type_name` when calling `get_advanced_search_results`")  # noqa: E501
+        # verify the required parameter 'search' is set
+        if ('search' not in params or
+                params['search'] is None):
+            raise ValueError("Missing the required parameter `search` when calling `get_advanced_search_results`")  # noqa: E501
 
         collection_formats = {}
 
@@ -798,8 +864,14 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        if 'search' in params:
+            body_params = params['search']
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''writeAppID']  # noqa: E501
+        auth_settings = ['authToken', 'writeAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}/search', 'POST',
@@ -889,8 +961,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types', 'GET',
@@ -948,7 +1024,7 @@ class RsearchApi(object):
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -988,8 +1064,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}/documents', 'GET',
@@ -1071,8 +1151,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes', 'GET',
@@ -1130,7 +1214,7 @@ class RsearchApi(object):
                  returns the request thread.
         """
 
-        all_params = ['index_name''q']  # noqa: E501
+        all_params = ['index_name', 'q']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1170,8 +1254,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/search', 'GET',
@@ -1231,7 +1319,7 @@ class RsearchApi(object):
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name''q']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name', 'q']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1277,8 +1365,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}/suggest', 'GET',
@@ -1338,7 +1430,7 @@ class RsearchApi(object):
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name''doc_id']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name', 'doc_id']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1384,8 +1476,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}/documents/{doc_id}', 'GET',
@@ -1443,7 +1539,7 @@ class RsearchApi(object):
                  returns the request thread.
         """
 
-        all_params = ['index_name''doc_type_name']  # noqa: E501
+        all_params = ['index_name', 'doc_type_name']  # noqa: E501
         all_params.append('async')
         all_params.append('_return_http_data_only')
         all_params.append('_preload_content')
@@ -1483,8 +1579,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}/document_types/{doc_type_name}', 'GET',
@@ -1574,8 +1674,12 @@ class RsearchApi(object):
         local_var_files = {}
 
         body_params = None
+        # HTTP header `Accept`
+        header_params['Accept'] = self.api_client.select_header_accept(
+            ['application/json'])  # noqa: E501
+
         # Authentication setting
-        auth_settings = ['authToken''readAppID']  # noqa: E501
+        auth_settings = ['authToken', 'readAppID']  # noqa: E501
 
         return self.api_client.call_api(
             '/indexes/{index_name}', 'GET',

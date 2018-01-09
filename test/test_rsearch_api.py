@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -16,7 +16,7 @@ from __future__ import absolute_import
 import unittest
 
 import rsearch_client
-from .rsearch_api import RsearchApi  # noqa: E501
+from rsearch_client.api.rsearch_api import RsearchApi  # noqa: E501
 from rsearch_client.rest import ApiException
 
 
@@ -24,7 +24,7 @@ class TestRsearchApi(unittest.TestCase):
     """RsearchApi unit test stubs"""
 
     def setUp(self):
-        self.api = .rsearch_api.RsearchApi()  # noqa: E501
+        self.api = rsearch_client.api.rsearch_api.RsearchApi()  # noqa: E501
 
     def tearDown(self):
         pass

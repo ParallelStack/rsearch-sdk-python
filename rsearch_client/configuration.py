@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -224,6 +224,27 @@ class Configuration(six.with_metaclass(TypeWithDefault, object)):
         :return: The Auth Settings information dict.
         """
         return {
+            'authToken':
+                {
+                    'type': 'api_key',
+                    'in': 'query',
+                    'key': 'auth_token',
+                    'value': self.get_api_key_with_prefix('auth_token')
+                },
+            'readAppID':
+                {
+                    'type': 'api_key',
+                    'in': 'header',
+                    'key': 'X-RSearch-App-ID',
+                    'value': self.get_api_key_with_prefix('X-RSearch-App-ID')
+                },
+            'writeAppID':
+                {
+                    'type': 'api_key',
+                    'in': 'header',
+                    'key': 'X-RSearch-App-ID',
+                    'value': self.get_api_key_with_prefix('X-RSearch-App-ID')
+                },
 
         }
 

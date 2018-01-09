@@ -3,7 +3,7 @@
 """
     ParallelStack RSearch API
 
-    REST API Specification for ParallelStack RSearch API.  # noqa: E501
+    REST API Specification for ParallelStack RSearch API  # noqa: E501
 
     OpenAPI spec version: 1.1.0
     Contact: team@parallelstack.com
@@ -15,6 +15,8 @@ import pprint
 import re  # noqa: F401
 
 import six
+
+from rsearch_client.models.delete_index_success_index import DeleteIndexSuccessIndex  # noqa: F401,E501
 
 
 class DeleteDocumentSuccess(object):
@@ -31,7 +33,7 @@ class DeleteDocumentSuccess(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'document': 'object'
+        'document': 'DeleteIndexSuccessIndex'
     }
 
     attribute_map = {
@@ -52,7 +54,7 @@ class DeleteDocumentSuccess(object):
 
 
         :return: The document of this DeleteDocumentSuccess.  # noqa: E501
-        :rtype: object
+        :rtype: DeleteIndexSuccessIndex
         """
         return self._document
 
@@ -62,7 +64,7 @@ class DeleteDocumentSuccess(object):
 
 
         :param document: The document of this DeleteDocumentSuccess.  # noqa: E501
-        :type: object
+        :type: DeleteIndexSuccessIndex
         """
         if document is None:
             raise ValueError("Invalid value for `document`, must not be `None`")  # noqa: E501
