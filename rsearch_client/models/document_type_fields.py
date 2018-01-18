@@ -123,12 +123,6 @@ class DocumentTypeFields(object):
         :param suggest: The suggest of this DocumentTypeFields.  # noqa: E501
         :type: str
         """
-        allowed_values = ["true"]  # noqa: E501
-        if suggest not in allowed_values:
-            raise ValueError(
-                "Invalid value for `suggest` ({0}), must be one of {1}"  # noqa: E501
-                .format(suggest, allowed_values)
-            )
 
         self._suggest = suggest
 
