@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from rsearch_client.models.search_failure_suggest_results import SearchFailureSuggestResults  # noqa: F401,E501
+from rsearch_client.models.search_failure_search_results import SearchFailureSearchResults  # noqa: F401,E501
 
 
 class SearchFailure(object):
@@ -33,42 +33,43 @@ class SearchFailure(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'suggest_results': 'SearchFailureSuggestResults'
+        'search_results': 'SearchFailureSearchResults'
     }
 
     attribute_map = {
-        'suggest_results': 'suggest_results'
+        'search_results': 'search_results'
     }
 
-    def __init__(self, suggest_results=None):  # noqa: E501
+    def __init__(self, search_results=None):  # noqa: E501
         """SearchFailure - a model defined in Swagger"""  # noqa: E501
 
-        self._suggest_results = None
+        self._search_results = None
         self.discriminator = None
 
-        if suggest_results is not None:
-            self.suggest_results = suggest_results
+        self.search_results = search_results
 
     @property
-    def suggest_results(self):
-        """Gets the suggest_results of this SearchFailure.  # noqa: E501
+    def search_results(self):
+        """Gets the search_results of this SearchFailure.  # noqa: E501
 
 
-        :return: The suggest_results of this SearchFailure.  # noqa: E501
-        :rtype: SearchFailureSuggestResults
+        :return: The search_results of this SearchFailure.  # noqa: E501
+        :rtype: SearchFailureSearchResults
         """
-        return self._suggest_results
+        return self._search_results
 
-    @suggest_results.setter
-    def suggest_results(self, suggest_results):
-        """Sets the suggest_results of this SearchFailure.
+    @search_results.setter
+    def search_results(self, search_results):
+        """Sets the search_results of this SearchFailure.
 
 
-        :param suggest_results: The suggest_results of this SearchFailure.  # noqa: E501
-        :type: SearchFailureSuggestResults
+        :param search_results: The search_results of this SearchFailure.  # noqa: E501
+        :type: SearchFailureSearchResults
         """
+        if search_results is None:
+            raise ValueError("Invalid value for `search_results`, must not be `None`")  # noqa: E501
 
-        self._suggest_results = suggest_results
+        self._search_results = search_results
 
     def to_dict(self):
         """Returns the model properties as a dict"""

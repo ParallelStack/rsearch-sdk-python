@@ -16,7 +16,7 @@ import re  # noqa: F401
 
 import six
 
-from rsearch_client.models.search_success_suggest_results import SearchSuccessSuggestResults  # noqa: F401,E501
+from rsearch_client.models.search_success_search_results import SearchSuccessSearchResults  # noqa: F401,E501
 
 
 class SuggestSuccess(object):
@@ -33,7 +33,7 @@ class SuggestSuccess(object):
                             and the value is json key in definition.
     """
     swagger_types = {
-        'suggest_results': 'SearchSuccessSuggestResults'
+        'suggest_results': 'SearchSuccessSearchResults'
     }
 
     attribute_map = {
@@ -54,7 +54,7 @@ class SuggestSuccess(object):
 
 
         :return: The suggest_results of this SuggestSuccess.  # noqa: E501
-        :rtype: SearchSuccessSuggestResults
+        :rtype: SearchSuccessSearchResults
         """
         return self._suggest_results
 
@@ -64,7 +64,7 @@ class SuggestSuccess(object):
 
 
         :param suggest_results: The suggest_results of this SuggestSuccess.  # noqa: E501
-        :type: SearchSuccessSuggestResults
+        :type: SearchSuccessSearchResults
         """
         if suggest_results is None:
             raise ValueError("Invalid value for `suggest_results`, must not be `None`")  # noqa: E501

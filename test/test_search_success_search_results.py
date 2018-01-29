@@ -16,12 +16,12 @@ from __future__ import absolute_import
 import unittest
 
 import rsearch_client
-from rsearch_client.models.search_success_suggest_results_metadata import SearchSuccessSuggestResultsMetadata  # noqa: E501
+from rsearch_client.models.search_success_search_results import SearchSuccessSearchResults  # noqa: E501
 from rsearch_client.rest import ApiException
 
 
-class TestSearchSuccessSuggestResultsMetadata(unittest.TestCase):
-    """SearchSuccessSuggestResultsMetadata unit test stubs"""
+class TestSearchSuccessSearchResults(unittest.TestCase):
+    """SearchSuccessSearchResults unit test stubs"""
 
     def setUp(self):
         pass
@@ -29,10 +29,10 @@ class TestSearchSuccessSuggestResultsMetadata(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testSearchSuccessSuggestResultsMetadata(self):
-        """Test SearchSuccessSuggestResultsMetadata"""
+    def testSearchSuccessSearchResults(self):
+        """Test SearchSuccessSearchResults"""
         # FIXME: construct object with mandatory attributes with example values
-        # model = rsearch_client.models.search_success_suggest_results_metadata.SearchSuccessSuggestResultsMetadata()  # noqa: E501
+        # model = rsearch_client.models.search_success_search_results.SearchSuccessSearchResults()  # noqa: E501
         pass
 
 
