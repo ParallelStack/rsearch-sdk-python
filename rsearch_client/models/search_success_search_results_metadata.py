@@ -33,27 +33,27 @@ class SearchSuccessSearchResultsMetadata(object):
     swagger_types = {
         'number_search_results': 'float',
         'query': 'str',
-        'aggregations': 'object'
+        'aggregated': 'object'
     }
 
     attribute_map = {
         'number_search_results': 'number_search_results',
         'query': 'query',
-        'aggregations': 'aggregations'
+        'aggregated': 'aggregated'
     }
 
-    def __init__(self, number_search_results=None, query=None, aggregations=None):  # noqa: E501
+    def __init__(self, number_search_results=None, query=None, aggregated=None):  # noqa: E501
         """SearchSuccessSearchResultsMetadata - a model defined in Swagger"""  # noqa: E501
 
         self._number_search_results = None
         self._query = None
-        self._aggregations = None
+        self._aggregated = None
         self.discriminator = None
 
         self.number_search_results = number_search_results
         self.query = query
-        if aggregations is not None:
-            self.aggregations = aggregations
+        if aggregated is not None:
+            self.aggregated = aggregated
 
     @property
     def number_search_results(self):
@@ -102,25 +102,25 @@ class SearchSuccessSearchResultsMetadata(object):
         self._query = query
 
     @property
-    def aggregations(self):
-        """Gets the aggregations of this SearchSuccessSearchResultsMetadata.  # noqa: E501
+    def aggregated(self):
+        """Gets the aggregated of this SearchSuccessSearchResultsMetadata.  # noqa: E501
 
 
-        :return: The aggregations of this SearchSuccessSearchResultsMetadata.  # noqa: E501
+        :return: The aggregated of this SearchSuccessSearchResultsMetadata.  # noqa: E501
         :rtype: object
         """
-        return self._aggregations
+        return self._aggregated
 
-    @aggregations.setter
-    def aggregations(self, aggregations):
-        """Sets the aggregations of this SearchSuccessSearchResultsMetadata.
+    @aggregated.setter
+    def aggregated(self, aggregated):
+        """Sets the aggregated of this SearchSuccessSearchResultsMetadata.
 
 
-        :param aggregations: The aggregations of this SearchSuccessSearchResultsMetadata.  # noqa: E501
+        :param aggregated: The aggregated of this SearchSuccessSearchResultsMetadata.  # noqa: E501
         :type: object
         """
 
-        self._aggregations = aggregations
+        self._aggregated = aggregated
 
     def to_dict(self):
         """Returns the model properties as a dict"""
