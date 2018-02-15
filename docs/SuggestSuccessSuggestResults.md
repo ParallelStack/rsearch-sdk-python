@@ -1,9 +1,10 @@
-# GetDocumentsSuccessDocuments
+# SuggestSuccessSuggestResults
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**result** | [**list[Document]**](Document.md) |  | 
+**results** | **list[object]** |  | 
+**metadata** | [**SuggestSuccessSuggestResultsMetadata**](SuggestSuccessSuggestResultsMetadata.md) |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
