@@ -11,6 +11,8 @@ Method | HTTP request | Description
 [**delete_index**](RsearchApi.md#delete_index) | **DELETE** /indexes/{index_name} | 
 [**get_advanced_doc_type_suggest_results**](RsearchApi.md#get_advanced_doc_type_suggest_results) | **POST** /indexes/{index_name}/document_types/{doc_type_name}/suggest | 
 [**get_advanced_index_suggest_results**](RsearchApi.md#get_advanced_index_suggest_results) | **POST** /indexes/{index_name}/suggest | 
+[**get_advanced_multi_index_search_results**](RsearchApi.md#get_advanced_multi_index_search_results) | **POST** /indexes/search | 
+[**get_advanced_multi_index_suggest_results**](RsearchApi.md#get_advanced_multi_index_suggest_results) | **POST** /indexes/suggest | 
 [**get_advanced_search_results**](RsearchApi.md#get_advanced_search_results) | **POST** /indexes/{index_name}/document_types/{doc_type_name}/search | 
 [**get_all_document_types**](RsearchApi.md#get_all_document_types) | **GET** /indexes/{index_name}/document_types | 
 [**get_all_indexes**](RsearchApi.md#get_all_indexes) | **GET** /indexes | 
@@ -19,6 +21,7 @@ Method | HTTP request | Description
 [**get_document**](RsearchApi.md#get_document) | **GET** /indexes/{index_name}/document_types/{doc_type_name}/documents/{doc_id} | 
 [**get_document_type**](RsearchApi.md#get_document_type) | **GET** /indexes/{index_name}/document_types/{doc_type_name} | 
 [**get_index**](RsearchApi.md#get_index) | **GET** /indexes/{index_name} | 
+[**get_similar_docs_results**](RsearchApi.md#get_similar_docs_results) | **POST** /indexes/algorithms/similardocs | 
 
 
 # **add_document**
@@ -330,7 +333,7 @@ Name | Type | Description  | Notes
 
 
 
-Gets Suggestions from `doc_type_name` in `index_name` limited by the body params. Please ensure you refer the getting started guides, to get the format of the query right.
+Gets Suggestions from `doc_type_name` in `index_name` based on body params. Please ensure you refer the getting started guides, to get the format of the query right.
 
 ### Example
 ```python
@@ -431,6 +434,122 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **index_name** | **str**| Name of the index | 
  **search** | [**SuggestQuery**](SuggestQuery.md)| Details of the search query | 
+
+### Return type
+
+[**SuggestSuccess**](SuggestSuccess.md)
+
+### Authorization
+
+[authToken](../README.md#authToken), [readAppID](../README.md#readAppID)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_advanced_multi_index_search_results**
+> SearchSuccess get_advanced_multi_index_search_results(search)
+
+
+
+Advanced Search across multiple indexes specified as a part of the search criteria. Please ensure you refer the getting started guides, to get the format of the query right.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rsearch_client
+from rsearch_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+search = rsearch_client.IndexesSearchQuery() # IndexesSearchQuery | Details of the search query
+
+try:
+    api_response = api_instance.get_advanced_multi_index_search_results(search)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling RsearchApi->get_advanced_multi_index_search_results: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **search** | [**IndexesSearchQuery**](IndexesSearchQuery.md)| Details of the search query | 
+
+### Return type
+
+[**SearchSuccess**](SearchSuccess.md)
+
+### Authorization
+
+[authToken](../README.md#authToken), [readAppID](../README.md#readAppID)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_advanced_multi_index_suggest_results**
+> SuggestSuccess get_advanced_multi_index_suggest_results(suggest)
+
+
+
+Gets Suggestions across multiple indexes. Please ensure you refer the getting started guides, to get the format of the query right.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rsearch_client
+from rsearch_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+suggest = rsearch_client.IndexesSuggestQuery() # IndexesSuggestQuery | Details of the suggest query
+
+try:
+    api_response = api_instance.get_advanced_multi_index_suggest_results(suggest)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling RsearchApi->get_advanced_multi_index_suggest_results: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **suggest** | [**IndexesSuggestQuery**](IndexesSuggestQuery.md)| Details of the suggest query | 
 
 ### Return type
 
@@ -911,6 +1030,64 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**GetIndexSuccess**](GetIndexSuccess.md)
+
+### Authorization
+
+[authToken](../README.md#authToken), [readAppID](../README.md#readAppID)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_similar_docs_results**
+> AlgorithmSuccess get_similar_docs_results(algorithm)
+
+
+
+Returns Similar Documents based on the provided document(s) details. Please ensure you refer the getting started guides, to get the format of the query right.
+
+### Example
+```python
+from __future__ import print_function
+import time
+import rsearch_client
+from rsearch_client.rest import ApiException
+from pprint import pprint
+
+# Configure API key authorization: authToken
+configuration = rsearch_client.Configuration()
+configuration.api_key['auth_token'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['auth_token'] = 'Bearer'
+# Configure API key authorization: readAppID
+configuration = rsearch_client.Configuration()
+configuration.api_key['X-RSearch-App-ID'] = 'YOUR_API_KEY'
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['X-RSearch-App-ID'] = 'Bearer'
+
+# create an instance of the API class
+api_instance = rsearch_client.RsearchApi(rsearch_client.ApiClient(configuration))
+algorithm = rsearch_client.AlgorithmSimilarDocsQuery() # AlgorithmSimilarDocsQuery | Query defintions
+
+try:
+    api_response = api_instance.get_similar_docs_results(algorithm)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling RsearchApi->get_similar_docs_results: %s\n" % e)
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **algorithm** | [**AlgorithmSimilarDocsQuery**](AlgorithmSimilarDocsQuery.md)| Query defintions | 
+
+### Return type
+
+[**AlgorithmSuccess**](AlgorithmSuccess.md)
 
 ### Authorization
 
